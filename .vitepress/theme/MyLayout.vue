@@ -64,14 +64,14 @@ const breadcrumbs = computed(() => {
   top: var(--vp-nav-height) !important;
   left: var(--vp-sidebar-width) !important;
   right: 0 !important;
-  z-index: 9999 !important;
+  z-index: 9 !important;
   height: 36px !important;
   line-height: 36px !important;
   padding: 0 24px !important;
-  background: #fff !important;
+  background: var(--vp-c-bg-soft) !important;
   border-bottom: 1px solid var(--vp-c-divider) !important;
   font-size: 13px !important;
-  color: #333 !important;
+  color: var(--vp-c-text-1) !important;
   display: flex !important;
   align-items: center !important;
 }
