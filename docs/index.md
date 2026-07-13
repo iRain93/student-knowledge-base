@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "学生知识库"
   text: "幼儿园到高中系统化知识体系"
-  tagline: 小班 · 中班 · 大班 · 一年级 ~ 六年级 · 初一 ~ 初三 · 高一 ~ 高三
+  tagline: 覆盖 K-12 全学段，助力每个阶段的学习成长
   actions:
     - theme: brand
       text: 小班
@@ -20,16 +20,49 @@ hero:
       link: /primary/grade1/
 
 features:
-  - title: 幼儿园
-    details: 小班、中班、大班 —— 数学启蒙，培养数感与逻辑思维
+  - title: 小班
+    details: 幼儿园 · 语言、数学、科学、艺术、健康、社会
     link: /preschool/xiaoban/
-  - title: 小学
-    details: 一年级至六年级 —— 循序渐进的数学体系，打好扎实基础
+  - title: 中班
+    details: 幼儿园 · 语言、数学、科学、艺术、健康、社会
+    link: /preschool/zhongban/
+  - title: 大班
+    details: 幼儿园 · 语言、数学、科学、艺术、健康、社会
+    link: /preschool/daban/
+  - title: 一年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育
     link: /primary/grade1/
-  - title: 初中
-    details: 初一至初三 —— 代数与几何并进，培养抽象思维能力
+  - title: 二年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育
+    link: /primary/grade2/
+  - title: 三年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育、信息技术
+    link: /primary/grade3/
+  - title: 四年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育、信息技术
+    link: /primary/grade4/
+  - title: 五年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育、信息技术
+    link: /primary/grade5/
+  - title: 六年级
+    details: 小学 · 语文、数学、英语、科学、道法、音乐、美术、体育、信息技术
+    link: /primary/grade6/
+  - title: 初一
+    details: 初中 · 语文、数学、英语、生物、历史、地理、道法、音乐、美术、体育
     link: /junior/grade7/
-  - title: 高中
-    details: 高一至高三 —— 构建高等数学思维框架
+  - title: 初二
+    details: 初中 · 语文、数学、英语、物理、生物、历史、地理、道法、音乐、美术、体育
+    link: /junior/grade8/
+  - title: 初三
+    details: 初中 · 语文、数学、英语、物理、化学、历史、道法、音乐、美术、体育
+    link: /junior/grade9/
+  - title: 高一
+    details: 高中 · 语文、数学、英语、物理、化学、生物、历史、地理、政治、信息技术、音乐、美术、体育
     link: /senior/grade10/
+  - title: 高二
+    details: 高中 · 语文、数学、英语、物理、化学、生物、历史、地理、政治、信息技术、音乐、美术、体育
+    link: /senior/grade11/
+  - title: 高三
+    details: 高中 · 语文、数学、英语、物理、化学、生物、历史、地理、政治、信息技术、音乐、美术、体育
+    link: /senior/grade12/
 ---

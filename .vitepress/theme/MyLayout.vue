@@ -16,15 +16,24 @@ const gradeLabelMap = {
   'grade10': '高一', 'grade11': '高二', 'grade12': '高三'
 }
 
-function getItemLabel(pathPrefix, filePath) {
+function getLabels(pathPrefix, filePath) {
   const sidebar = theme.value?.sidebar || {}
   const items = sidebar[pathPrefix] || []
-  for (const item of items) {
-    if (item.link === filePath || item.link === filePath + '/') {
-      return item.text
+  for (const group of items) {
+    // 检查分组本身是否匹配（如学科总览页）
+    if (group.link === filePath || group.link === filePath + '/') {
+      return { page: group.text }
+    }
+    // 检查子项是否匹配
+    if (group.items) {
+      for (const child of group.items) {
+        if (child.link === filePath || child.link === filePath + '/') {
+          return { subject: group.text, page: child.text }
+        }
+      }
     }
   }
-  return filePath.split('/').pop() || filePath
+  return { page: filePath.split('/').pop() || filePath }
 }
 
 const breadcrumbs = computed(() => {
@@ -42,8 +51,11 @@ const breadcrumbs = computed(() => {
   }
   const pathPrefix = `/${parts[0]}/${parts[1]}/`
   const fullPath = `/${clean}`
-  const itemLabel = getItemLabel(pathPrefix, fullPath)
-  return { first: gradeLabel, second: itemLabel }
+  const labels = getLabels(pathPrefix, fullPath)
+  if (labels.subject) {
+    return { first: gradeLabel, second: labels.subject, third: labels.page }
+  }
+  return { first: gradeLabel, second: labels.page }
 })
 </script>
 
@@ -51,8 +63,12 @@ const breadcrumbs = computed(() => {
   <Layout>
     <template #layout-top>
       <div class="breadcrumb-fixed">
-        <template v-if="breadcrumbs">{{ breadcrumbs.first }} &gt; {{ breadcrumbs.second }}</template>
-        <template v-else>{{ site.title }}</template>
+        <template v-if="breadcrumbs">
+          {{ breadcrumbs.first }} &gt;
+          <template v-if="breadcrumbs.third">{{ breadcrumbs.second }} &gt; {{ breadcrumbs.third }}</template>
+          <template v-else>{{ breadcrumbs.second }}</template>
+        </template>
+        <template v-else></template>
       </div>
     </template>
   </Layout>
@@ -68,11 +84,15 @@ const breadcrumbs = computed(() => {
   height: 36px !important;
   line-height: 36px !important;
   padding: 0 24px !important;
-  background: var(--vp-c-bg-soft) !important;
-  border-bottom: 1px solid var(--vp-c-divider) !important;
+  background-color: var(--vp-c-bg) !important;
   font-size: 13px !important;
-  color: var(--vp-c-text-1) !important;
+  color: var(--vp-c-text-2) !important;
   display: flex !important;
   align-items: center !important;
+}
+
+html.dark .breadcrumb-fixed {
+  background-color: var(--vp-c-bg) !important;
+  color: var(--vp-c-text-2) !important;
 }
 </style>
