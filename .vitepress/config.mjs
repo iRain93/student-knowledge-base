@@ -441,11 +441,23 @@ export default withMermaid(defineConfig({
     outline: {
       level: [2, 3],
       label: '本页导航'
-    }
-    /*
+    },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/iRain93/student-knowledge-base' }
     ]
-      */
+  },
+
+  vite: {
+    ssr: {
+      noExternal: ['dayjs', '@braintree/sanitize-url']
+    },
+    optimizeDeps: {
+      include: ['@braintree/sanitize-url']
+    },
+    resolve: {
+      alias: {
+        'dayjs': 'dayjs/'
+      }
+    }
   }
 }))
