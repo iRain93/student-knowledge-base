@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
+import { sidebar } from './sidebar.mjs'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
   srcDir: 'docs',
-  title: "文档",
-  description: "系统化的 Java 面试备战指南",
+  title: "学生知识库",
+  description: "幼儿园到高中 (K-12) 系统化知识库，涵盖数学等核心学科的知识点",
 
   // 自定义样式
   head: [['style', {}, `
@@ -392,9 +394,25 @@ export default defineConfig({
   `]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: '/assets/logo.png',
+
     nav: [
       { text: '首页', link: '/' },
-      { text: '模块1', link: '/module1/', activeMatch: '/module1/' }
+      { text: '小班', link: '/preschool/xiaoban/', activeMatch: '/preschool/xiaoban/' },
+      { text: '中班', link: '/preschool/zhongban/', activeMatch: '/preschool/zhongban/' },
+      { text: '大班', link: '/preschool/daban/', activeMatch: '/preschool/daban/' },
+      { text: '一年级', link: '/primary/grade1/', activeMatch: '/primary/grade1/' },
+      { text: '二年级', link: '/primary/grade2/', activeMatch: '/primary/grade2/' },
+      { text: '三年级', link: '/primary/grade3/', activeMatch: '/primary/grade3/' },
+      { text: '四年级', link: '/primary/grade4/', activeMatch: '/primary/grade4/' },
+      { text: '五年级', link: '/primary/grade5/', activeMatch: '/primary/grade5/' },
+      { text: '六年级', link: '/primary/grade6/', activeMatch: '/primary/grade6/' },
+      { text: '初一', link: '/junior/grade7/', activeMatch: '/junior/grade7/' },
+      { text: '初二', link: '/junior/grade8/', activeMatch: '/junior/grade8/' },
+      { text: '初三', link: '/junior/grade9/', activeMatch: '/junior/grade9/' },
+      { text: '高一', link: '/senior/grade10/', activeMatch: '/senior/grade10/' },
+      { text: '高二', link: '/senior/grade11/', activeMatch: '/senior/grade11/' },
+      { text: '高三', link: '/senior/grade12/', activeMatch: '/senior/grade12/' }
     ],
 
     search: {
@@ -418,49 +436,7 @@ export default defineConfig({
       }
     },
 
-    sidebar: {
-      '/module1/': [
-        { text: '总览', link: '/module1/' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' },
-        { text: '菜单1', link: '/module1/menu1' },
-        { text: '菜单2', link: '/module1/menu2' }
-      ]
-    },
+    sidebar,
 
     outline: {
       level: [2, 3],
@@ -472,4 +448,4 @@ export default defineConfig({
     ]
       */
   }
-})
+}))
